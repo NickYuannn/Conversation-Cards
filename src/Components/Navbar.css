@@ -1,0 +1,55 @@
+.navbar-container {
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to left, lightpink, hotpink);
+
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
+
+.name-container {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 30px;
+  color: white;
+}
+
+.icon-container {
+  font-size: 70px;
+  margin-top: 20px;
+  margin-left: 10px;
+  color: white;
+}
+
+.options-menu {
+  display: grid;
+  margin-left: auto;
+  margin-right: 80px;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 20px;
+  list-style: none;
+  text-align: center;
+  height: 35px;
+}
+
+.menu-item {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  transition: all 0.2s ease;
+  height: 100%;
+}
+
+.menu-item a {
+  color: white;
+  text-decoration: none;
+}
+
+.options-menu li:hover {
+  transition: all 0.2s ease;
+  border-bottom: 3px white solid;
+}
