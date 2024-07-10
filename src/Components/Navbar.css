@@ -54,3 +54,10 @@
   transition: all 0.2s ease;
   border-bottom: 3px white solid;
 }
+
+@media screen and (max-width: 768px) {
+  .menu-item{
+    font-size: 15px;
+  }
+  
+}

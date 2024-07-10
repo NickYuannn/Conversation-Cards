@@ -46,15 +46,18 @@ function CardPage(props) {
         <h2>Who goes first?</h2>
         <div className="turn-squares">
           <div className={turns === "Left" ? "turn-selected" : "turn"}>
-            Left
+            <h2>Left</h2>
           </div>
           <div className={turns === "Right" ? "turn-selected" : "turn"}>
-            Right
+            <h2>Right</h2>
           </div>
         </div>
         <button onClick={chooseTurn}>Choose!</button>
       </div>
       <Footer />
+
+
+      
     </div>
   );
 }

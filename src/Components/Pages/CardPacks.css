@@ -35,3 +35,8 @@
     text-decoration: underline;
 }
 
+@media screen and (max-width: 960px){
+    .headers-container > h1, .headers-container > h2{
+        font-size: 20px;
+    }
+}
