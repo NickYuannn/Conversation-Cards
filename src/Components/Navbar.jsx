@@ -16,7 +16,7 @@ function Navbar() {
       <ul className="options-menu">
         <li className="menu-item">
           {" "}
-          <Link to="/Conversation-Cards/"> Card Pack</Link>{" "}
+          <Link to="/Conversation-Cards/">Card Packs</Link>
         </li>
         <li className="menu-item">About Us</li>
         <li className="menu-item">Contact Us</li>

@@ -22,6 +22,7 @@ function CardPacks() {
             title="Strangers"
             subtitle="So you just met each other..."
             icon={MdDeviceUnknown}
+            link="/Conversation-Cards/Strangers"
           />
         </div>
 
@@ -31,6 +32,7 @@ function CardPacks() {
             title="Acquaintances"
             subtitle="What new things are you expecting?"
             icon={FaHandPeace}
+            link="/Conversation-Cards/Acquaintances"
           />
         </div>
 
@@ -40,16 +42,22 @@ function CardPacks() {
             title="Friends"
             subtitle="You think you know each other . . . right?"
             icon={TbFriends}
+            link="/Conversation-Cards/Friends"
           />
         </div>
 
         <h2 className="cardpack-names"> Very Familiar </h2>
         <div className="lovers-container">
-          <Card title="Lovers" subtitle="The one and only" icon={GiLovers} />
+          <Card
+            title="Lovers"
+            subtitle="The one and only"
+            icon={GiLovers}
+            link="/Conversation-Cards/Lovers"
+          />
         </div>
       </div>
 
-      <Footer/>
+      <Footer />
     </>
   );
 }
