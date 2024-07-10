@@ -8,6 +8,8 @@ function CardPage(props) {
     props.prompts[Math.floor(Math.random() * props.prompts.length)]
   );
 
+  const [reveal, setReveal] = useState(false);
+
   const [turns, setTurns] = useState("");
 
   function newPrompt() {
@@ -15,6 +17,7 @@ function CardPage(props) {
       props.prompts[Math.floor(Math.random() * props.prompts.length)]
     );
     setTurns("");
+    setReveal(false);
   }
 
   function chooseTurn() {
@@ -33,12 +36,24 @@ function CardPage(props) {
     }, randomSeconds * 1000);
   }
 
+  function revealPrompt() {
+    setReveal(true);
+  }
   return (
     <div className="cardpage-container">
       <h1>{props.packname}</h1>
-      <div className="conversation-card-container">
-        <h2>{randomPrompt}</h2>
-        <FaQuestion className="question-icon" />
+      <div className="conversation-card-container" onClick={revealPrompt}>
+        {reveal ? (
+          <>
+            <h2>{randomPrompt}</h2>
+            <FaQuestion className="question-icon" />
+          </>
+        ) : (
+          <>
+            <h2>Tap to reveal</h2>
+            <FaQuestion className="question-icon" />
+          </>
+        )}
       </div>
       <button onClick={newPrompt}>New Prompt</button>
 
@@ -55,9 +70,6 @@ function CardPage(props) {
         <button onClick={chooseTurn}>Choose!</button>
       </div>
       <Footer />
-
-
-      
     </div>
   );
 }

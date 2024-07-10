@@ -5,7 +5,7 @@ function Footer() {
   return (
     <footer className="footer-container">
         <h1>Recommend Convo to your peers!</h1>
-        <h2>Convo is a great way to start conversations with your friends and family. Share the love!</h2>
+        <h2>Convo is a great way to start conversations with the ones around you. Share the love and start connecting with one another!</h2>
         <h4>© {new Date().getFullYear()} Convo</h4>
     </footer>
   );

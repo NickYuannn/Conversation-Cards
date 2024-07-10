@@ -55,9 +55,56 @@
   border-bottom: 3px white solid;
 }
 
-@media screen and (max-width: 768px) {
-  .menu-item{
-    font-size: 15px;
+.menu-icon {
+  display: none;
+}
+
+.menu-icon-selected {
+  display: inline;
+  margin-right: 10px;
+  margin-left: auto;
+  color: white;
+  font-size: 50px;
+  padding-right: 20px;
+}
+
+@media screen and (max-width: 960px) {
+.navbar-container.active{
+  position: fixed;
+}
+
+  .options-menu {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    top: 100px;
+    left: -100%;
+    position: fixed;
+    transition: all 0s ease;
   }
-  
+
+  .options-menu.active {
+    background: linear-gradient(to left, lightpink, hotpink);
+    height: 100vh;
+    width: 100vw;
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+
+  .menu-item {
+    font-size: 30px;
+    height: 150px;
+    width: 100%;
+  }
+
+  .menu-item a{
+    font-size: 100% ;
+  }
+
+  .options-menu li:hover {
+    background-color: pink;
+    border: none;
+  }
 }

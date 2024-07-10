@@ -11,6 +11,12 @@
   margin-bottom: 50px;
 }
 
+.conversation-card-container > h2 {
+  font-size: 5rem;
+  color: pink;
+  margin-top: 40px;
+}
+
 .conversation-card-container {
   display: flex;
   flex-direction: column;
@@ -22,7 +28,7 @@
 
   color: rgb(255, 156, 172);
   padding: 20px;
-  padding-top: 100px;
+  padding-top: 50px;
   font-size: 30px;
 }
 
@@ -42,6 +48,8 @@
   border-radius: 10px;
   margin-top: 20px;
   border: none;
+
+  margin-bottom: 10px;
 
   font-family: "comic sans ms";
   transition: all 0.2s ease;
@@ -78,7 +86,7 @@
 
   width: 500px;
 
-  color: lightpink;
+  color: lavender;
 }
 
 .turn-selected {
@@ -92,7 +100,9 @@
   background-color: lavender;
   width: 500px;
 
-  color: lightpink;
+  border-radius: 10px;
+
+  color: white;
 }
 
 @media screen and (max-width: 960px) {
@@ -104,7 +114,7 @@
     height: 100vh;
   }
   .cardpage-container > h1 {
-    font-size: 20px;
+    font-size: 50px;
     margin-bottom: none;
   }
 

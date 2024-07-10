@@ -1,26 +1,65 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import { FaUserFriends } from "react-icons/fa";
+import { FaBars, FaRegWindowClose, FaUserFriends } from "react-icons/fa";
 
 function Navbar() {
+  const [menuButton, setMenuButton] = React.useState(false);
+  const [mobileMenu, setMobileMenu] = React.useState(false);
+
+  const showMenu = () => {
+    if (window.innerWidth <= 960) {
+      setMenuButton(true);
+    } else {
+      setMenuButton(false);
+    }
+  };
+
+  useEffect(() => {
+    showMenu();
+  }, []);
+
+  window.addEventListener("resize", showMenu);
+
+  function openMobileMenu() {
+    setMobileMenu(!mobileMenu);
+  }
+
   return (
-    <nav className="navbar-container">
+    <nav
+      className={mobileMenu ? "navbar-container active" : "navbar-container"}
+    >
       <div className="name-container">
-        <h1>Convo </h1>
+        <Link
+          to="/Conversation-Cards/"
+          style={{ textDecoration: "none", color: "white" }}
+        >
+          <h1>Convo </h1>
+        </Link>
       </div>
       <div className="icon-container">
-        <FaUserFriends className="icon" />
+        <Link
+          to="/Conversation-Cards/"
+          style={{ textDecoration: "none", color: "white" }}
+        >
+          <FaUserFriends className="icon" />
+        </Link>
       </div>
 
-      <ul className="options-menu">
-        <li className="menu-item">
-          {" "}
+      <ul className={!mobileMenu ? "options-menu" : "options-menu active"}>
+        <li className="menu-item" onClick={openMobileMenu}>
           <Link to="/Conversation-Cards/">Card Packs</Link>
         </li>
         <li className="menu-item">About Us</li>
         <li className="menu-item">Contact Us</li>
       </ul>
+
+      <div
+        className={menuButton ? "menu-icon-selected" : "menu-icon"}
+        onClick={openMobileMenu}
+      >
+        {mobileMenu ? <FaRegWindowClose /> : <FaBars />}
+      </div>
     </nav>
   );
 }

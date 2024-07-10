@@ -34,11 +34,11 @@ body {
     height: 100px;
   }
 
-  .footer-container > h1{
+  .footer-container > h1 {
     font-size: 20px;
   }
 
-  .footer-container > h2{
+  .footer-container > h2 {
     font-size: 12px;
   }
 }
