@@ -3,6 +3,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  height: 100%;
 }
 
 .cardpage-container > h1 {
@@ -132,13 +133,32 @@
   color: grey;
 }
 
+.question-icon.active {
+  animation: load 0.25s linear infinite;
+}
+
+@keyframes load {
+  0% {
+    transform: rotate(0deg);
+    color: lavender;
+  }
+  100% {
+    transform: rotate(360deg);
+    columns: hotpink;
+  }
+}
+
+.cardpage-container {
+  animation: rotate 2s linear infinite;
+}
+
 @media screen and (max-width: 960px) {
   .cardpage-container {
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
-    height: 100vh;
+    justify-content: flex-start;
+    height: 100%;
   }
   .cardpage-container > h1 {
     font-size: 50px;
@@ -155,7 +175,7 @@
     font-size: 20px;
   }
 
-  .conversation-card-container > h2 {
+  .conversation-card-container h2 {
     font-size: 25px;
   }
 
@@ -167,5 +187,9 @@
   .turn,
   .turn-selected {
     font-size: 20px;
+  }
+
+  .theme-container {
+    height: 200px;
   }
 }

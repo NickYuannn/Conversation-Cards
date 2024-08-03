@@ -6,29 +6,54 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 function CardPage(props) {
   const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
-
   const genAI = new GoogleGenerativeAI(apiKey);
-
   const [randomPrompt, setRandomPrompt] = useState("first one");
-
   const [theme, setTheme] = useState("");
+  const [promptHistory, setPromptHistory] = useState([{ text: "first one" }]);
+
+  const [loading, setLoading] = useState(false);
 
   async function generatePrompt() {
+    setLoading(true);
     try {
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-      const prompt = `Generate an interesting and deep question to start a conversation for ${
+      const prompt = `Generate an interesting and deep question to start a conversation specifically for ${
         props.packname
-      } under 10 words no emojis${theme ? ` with the theme ${theme}` : ""}.`;
-      console.log(prompt);
-      const result = await model.generateContent(prompt);
+      } under 10 words no emojis${
+        theme ? ` with the theme ${theme}` : ""
+      }. Avoid using old responses.`;
+
+      const updatedPromptHistory = [...promptHistory, { text: prompt }];
+
+      const chat = model.startChat({
+        history: [
+          {
+            role: "user",
+            parts: [{ text: prompt }],
+          },
+          {
+            role: "model",
+            parts: updatedPromptHistory,
+          },
+        ],
+        generationConfig: {
+          maxOutputTokens: 100,
+        },
+      });
+
+      const result = await chat.sendMessage(prompt);
       const response = await result.response;
-      const text = await response.text();
+      const text = response.text();
+
       setRandomPrompt(text);
       console.log(text);
+      setPromptHistory([...promptHistory, { text: text }]);
     } catch (error) {
       console.error("Error generating prompt:", error);
       setRandomPrompt("Error due to safety filter, try again");
     }
+
+    setLoading(false);
   }
 
   const [reveal, setReveal] = useState(false);
@@ -75,7 +100,9 @@ function CardPage(props) {
         ) : (
           <>
             <h2>Tap to reveal</h2>
-            <FaQuestion className="question-icon" />
+            <FaQuestion
+              className={loading ? "question-icon active" : "question-icon"}
+            />
           </>
         )}
       </div>
@@ -106,6 +133,7 @@ function CardPage(props) {
         </div>
         <button onClick={chooseTurn}>Choose!</button>
       </div>
+
       <Footer />
     </div>
   );

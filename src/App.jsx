@@ -6,12 +6,13 @@ import Strangers from "./Components/Pages/Strangers";
 import Friends from "./Components/Pages/Friends";
 import Acquaintances from "./Components/Pages/Acquaintances";
 import Lovers from "./Components/Pages/Lovers";
+import AboutUs from "./Components/Pages/AboutUs";
+import Family from "./Components/Pages/Family";
 
 function App() {
   return (
     <>
       <Router>
-        
         <Navbar />
         <Routes>
           <Route path="Conversation-Cards" exact Component={CardPacks} />
@@ -26,7 +27,12 @@ function App() {
             exact
             Component={Acquaintances}
           />
+
+          <Route path="Conversation-Cards/Family" exact Component={Family} />
+
           <Route path="Conversation-Cards/Lovers" exact Component={Lovers} />
+
+          <Route path="Conversation-Cards/About-Us" exact Component={AboutUs} />
         </Routes>
       </Router>
     </>

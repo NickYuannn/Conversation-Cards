@@ -1,0 +1,31 @@
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: #f9f9f9;
+  padding: 0px 100px;
+  height: 100vh;
+}
+
+.about-container h1 {
+  font-size: 5rem;
+  margin-bottom: 10px;
+  color: hotpink;
+  font-weight: bold;
+}
+
+.about-content {
+  border: 5px solid lavender;
+  border-radius: 10px;
+  box-shadow: lavender 5px 5px 20px 5px;
+}
+
+.about-container p {
+  font-size: 4rem;
+  padding: 1rem;
+}
+
+a {
+    color:black;
+}

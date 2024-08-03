@@ -50,12 +50,14 @@ function Navbar() {
         <li className="menu-item" onClick={openMobileMenu}>
           <Link to="/Conversation-Cards/">Card Packs</Link>
         </li>
-        <li className="menu-item">About Us</li>
+        <li className="menu-item" onClick={openMobileMenu}>
+          <Link to="/Conversation-Cards/About-Us">About Us</Link>
+        </li>
         <li className="menu-item">Contact Us</li>
       </ul>
 
       <div
-        className={menuButton ? "menu-icon-selected" : "menu-icon"}
+        className={menuButton ? "menu-icon selected" : "menu-icon"}
         onClick={openMobileMenu}
       >
         {mobileMenu ? <FaRegWindowClose /> : <FaBars />}

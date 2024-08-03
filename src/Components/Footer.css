@@ -1,17 +1,6 @@
-html,
 body {
   height: 100%;
   margin: 0;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.content {
-  flex: 1;
 }
 
 .footer-container {
@@ -20,16 +9,18 @@ body {
   background-color: pink;
   z-index: 999;
   color: white;
+
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: auto;
 }
 
 @media screen and (max-width: 960px) {
   .footer-container {
+    display: flex;
     justify-content: flex-end;
+    align-items: center;
     font-size: smaller;
     height: 100px;
   }

@@ -1,47 +1,65 @@
-.cardpack-container{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-self: center;
-    margin-bottom: 20px;
+.cardpack-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-self: center;
+  margin-bottom: 20px;
+  height: 100%;
 }
 
-.headers-container{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-self: center;
-    color: plum;
+.headers-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-self: center;
+  color: plum;
 }
 
-.headers-container > h1{
-    font-size: 10rem;
-    margin-top: 1rem;
+.headers-container > h1 {
+  font-size: 10rem;
+  margin-top: 1rem;
 }
 
-.headers-container > h2{
-    margin-top: 0;
-    font-size: 3rem;
-    margin-bottom: 4rem;
+.headers-container > h2 {
+  margin-top: 0;
+  font-size: 3rem;
+  margin-bottom: 4rem;
 }
 
-.card-text svg{
-    font-size: 3rem;
-    margin: 1rem;
+.cardpacks {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 30px;
+  justify-content: center; /* Add this line */
 }
 
-.cardpack-names{
-    color: rgb(226, 140, 226);
-    margin: 1rem;
-    text-decoration: underline;
+
+.card-text svg {
+  font-size: 3rem;
+  margin: 1rem;
 }
 
-@media screen and (max-width: 960px){
+.cardpack-names {
+  color: rgb(226, 140, 226);
+  margin: 1rem;
+  text-decoration: underline;
+}
 
-    .cardpack-container{
-        width: 100%;
-    }
-    .headers-container > h1, .headers-container > h2{
-        font-size: 20px;
-    }
+@media screen and (max-width: 960px) {
+  .cardpack-container {
+    width: 100%;
+    height: 190vh;
+  }
+
+  .headers-container > h1,
+  .headers-container > h2 {
+    font-size: 20px;
+  }
+
+  .cardpacks {
+    grid-template-columns: repeat(1, auto);
+
+  }
+
+
 }
