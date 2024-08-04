@@ -14,7 +14,9 @@ function CardPacks() {
       <div className="cardpack-container">
         <div className="headers-container">
           <h1>Card Packs</h1>
-          <h2>Start Conversing!</h2>
+          <h2>
+            <i>Start Conversing!</i>
+          </h2>
         </div>
 
         <div className="cardpacks">

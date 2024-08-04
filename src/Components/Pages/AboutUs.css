@@ -1,31 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
 .about-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
-
-  background-color: #f9f9f9;
-  padding: 0px 100px;
+  flex-direction: column;
   height: 100vh;
+  background-color: white;
+  z-index: -99999;
+  position: relative;
+  height: 100%;
 }
 
 .about-container h1 {
   font-size: 5rem;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
   color: hotpink;
-  font-weight: bold;
+  margin-top: 10px;
+  box-shadow: hotpink 5px 10px 20px;
+  border-radius: 5px;
 }
 
 .about-content {
-  border: 5px solid lavender;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 2rem;
+  width: 500px;
+  height: 650px;
+  background-color: white;
+  text-align: center;
   border-radius: 10px;
-  box-shadow: lavender 5px 5px 20px 5px;
+  position: relative;
+  margin-bottom: 150px;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.about-content::after,
+.about-content::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle), transparent 90%, hotpink);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  padding: 10px;
+  border-radius: 15px;
+  animation: spin 2s linear infinite;
+}
+
+.about-content::before {
+  filter: blur(20px);
+  opacity: 0.5;
+}
+
+@keyframes spin {
+  0% {
+    --angle: 0deg;
+  }
+  100% {
+    --angle: 360deg;
+  }
 }
 
 .about-container p {
-  font-size: 4rem;
+  font-size: 1.5rem;
   padding: 1rem;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: Roboto;
 }
 
 a {
-    color:black;
+  color: rgba(0, 0, 0, 0.5);
 }

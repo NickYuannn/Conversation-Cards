@@ -1,4 +1,10 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
+import { useEffect } from "react";
 import Navbar from "./Components/Navbar";
 import "./App.css";
 import CardPacks from "./Components/Pages/CardPacks";
@@ -9,11 +15,22 @@ import Lovers from "./Components/Pages/Lovers";
 import AboutUs from "./Components/Pages/AboutUs";
 import Family from "./Components/Pages/Family";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <>
       <Router>
         <Navbar />
+        <ScrollToTop />
         <Routes>
           <Route path="Conversation-Cards" exact Component={CardPacks} />
           <Route

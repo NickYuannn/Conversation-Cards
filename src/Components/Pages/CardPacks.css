@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-self: center;
   margin-bottom: 20px;
-  height: 100%;
+  height: 200%;
 }
 
 .headers-container {
@@ -18,6 +18,9 @@
 .headers-container > h1 {
   font-size: 10rem;
   margin-top: 1rem;
+  box-shadow: plum 15px 5px 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
 }
 
 .headers-container > h2 {
@@ -51,7 +54,9 @@
     height: 190vh;
   }
 
-  .headers-container > h1,
+  .headers-container > h1{
+    font-size: 30px;
+  }
   .headers-container > h2 {
     font-size: 20px;
   }

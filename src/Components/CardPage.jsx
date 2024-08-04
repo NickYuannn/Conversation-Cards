@@ -87,7 +87,9 @@ function CardPage(props) {
   }
   return (
     <div className="cardpage-container">
-      <h1>{props.packname}</h1>
+      <h1>
+        <u>{props.packname}</u>
+      </h1>
       <div
         className="conversation-card-container"
         onClick={reveal ? null : revealPrompt}
@@ -123,11 +125,12 @@ function CardPage(props) {
 
       <div className="turn-container">
         <h2>Who goes first?</h2>
+        <h3>If yall cannot decide</h3>
         <div className="turn-squares">
-          <div className={turns === "Left" ? "turn-selected" : "turn"}>
+          <div className={turns === "Left" ? "turn selected" : "turn"}>
             <h2>Left</h2>
           </div>
-          <div className={turns === "Right" ? "turn-selected" : "turn"}>
+          <div className={turns === "Right" ? "turn selected" : "turn"}>
             <h2>Right</h2>
           </div>
         </div>
