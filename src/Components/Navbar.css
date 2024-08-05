@@ -6,6 +6,7 @@
   display: flex;
   justify-self: center;
   align-items: center;
+
 }
 
 .name-container {
@@ -44,7 +45,9 @@
   font-size: 2rem;
   font-weight: bold;
   transition: 0.2s ease all;
+  cursor: pointer;
 }
+
 
 .options-menu li:hover {
   border-bottom: 5px solid white;
@@ -55,8 +58,12 @@
 }
 
 .options-menu a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   color: white;
+  height: 100%;
 }
 
 .menu-icon {

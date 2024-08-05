@@ -5,15 +5,14 @@
 .history-container.active {
   display: flex;
   flex-direction: column;
-  width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  top: 0;
-  left: 0;
-  right: 0;
-  position: fixed;
   align-items: center;
+  position: absolute;
   z-index: 999;
-  height: 135.5vh;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
 }
 
 .history-container button {
@@ -35,6 +34,7 @@
   height: 500px;
   width: 300px;
   overflow-y: auto;
+  position: relative;
 }
 
 .history-card > li {
@@ -73,4 +73,11 @@
 
 .history-container li {
   color: hotpink;
+}
+
+@media screen and (max-width: 600px) {
+  .history-container.active {
+    width: 100%;
+    height: 100%;
+  }
 }

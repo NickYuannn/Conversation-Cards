@@ -9,25 +9,41 @@ function Footer() {
 
       <h2>Connect with me: </h2>
       <div className="connects">
-        <span className="link">
+        <span className="link line">
           <FaGithub />
-          <a>Github</a>
+          <a href="https://github.com/NickYuannn" target="_blank">
+            Github
+          </a>
         </span>
-        <span className="link">
+        <span className="link line ">
           <FaLinkedin />
-          <a>LinkedIn</a>
+          <a
+            href="https://www.linkedin.com/in/nick-yuan-3999732ab/"
+            target="_blank"
+          >
+            LinkedIn
+          </a>
         </span>
-        <span className="link">
+        <span className="link line">
           <FaDiscord />
-          <a>Discord</a>
+          <a
+            onMouseEnter={(e) => {
+              e.target.innerText = "nnnnnnick";
+            }}
+            onMouseLeave={(e) => (e.target.innerText = "Discord")}
+          >
+            Discord
+          </a>
         </span>
 
         <span className="link">
           <FaMailBulk />
-          <a>Email</a>
+          <a href="mailto:nk.yuan2005@gmail.com">Email</a>
         </span>
       </div>
-      <h4>© {new Date().getFullYear()} Convo: Conversation Cards by Nick Yuan</h4>
+      <h4>
+        © {new Date().getFullYear()} Convo: Conversation Cards by Nick Yuan
+      </h4>
     </footer>
   );
 }

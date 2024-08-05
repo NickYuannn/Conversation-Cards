@@ -4,9 +4,21 @@
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  position: relative;
+
 }
 
-.cardpage-container > h1 {
+.cardpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.cardpage > h1 {
   font-size: 5rem;
   color: hotpink;
   margin-bottom: 50px;
@@ -68,8 +80,8 @@
   margin-top: auto;
 }
 
-.cardpage-container > button,
-.turn-container button {
+.cardpage > button,
+.turn-container > button {
   background-color: hotpink;
   color: white;
   font-size: 20px;
@@ -84,7 +96,7 @@
   transition: all 0.2s ease;
 }
 
-.cardpage-container > button:hover,
+.cardpage > button:hover,
 .turn-container button:hover {
   transition: all 0.2s ease;
   box-shadow: 0 0 10px hotpink;
@@ -97,6 +109,16 @@
   justify-content: center;
   color: hotpink;
   font-size: 5rem;
+  border: plum 3px dotted;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  transition: ease all 0.5s;
+}
+
+.turn-container:hover {
+  box-shadow: 10px 10px 20px plum;
+  transition: ease all 0.5s;
 }
 
 .turn-squares {
