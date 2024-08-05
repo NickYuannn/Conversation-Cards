@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import "./CardPage.css";
+import "./PromptHistory.css";
 import { FaQuestion } from "react-icons/fa";
 import Footer from "./Footer";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { FaRegWindowClose } from "react-icons/fa";
 
 function CardPage(props) {
   const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
   const genAI = new GoogleGenerativeAI(apiKey);
-  const [randomPrompt, setRandomPrompt] = useState("first one");
+  const [randomPrompt, setRandomPrompt] = useState("");
   const [theme, setTheme] = useState("");
-  const [promptHistory, setPromptHistory] = useState([{ text: "first one" }]);
+  const [promptHistory, setPromptHistory] = useState([{ text: "" }]);
+  const [openHistory, setOpenHistory] = useState(false);
 
   const [loading, setLoading] = useState(false);
 
@@ -90,6 +93,32 @@ function CardPage(props) {
       <h1>
         <u>{props.packname}</u>
       </h1>
+
+      {/* PromptHistory*/}
+      <div
+        className={
+          openHistory ? "history-container active " : "history-container"
+        }
+      >
+        <div className="history-card">
+          <h1>Prompt History</h1>
+          <ul>
+            {promptHistory.map((prompt, index) => (
+              <li key={index}>{prompt.text}</li>
+            ))}
+          </ul>
+        </div>
+
+        <button>
+          <FaRegWindowClose
+            onClick={() => {
+              setOpenHistory(false);
+            }}
+          />
+        </button>
+      </div>
+      {/* <PromptHistory*/}
+
       <div
         className="conversation-card-container"
         onClick={reveal ? null : revealPrompt}
@@ -122,6 +151,17 @@ function CardPage(props) {
         </div>
       </div>
       <button onClick={newPrompt}>New Prompt</button>
+      <button
+        onClick={() => {
+          setOpenHistory(true);
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        }}
+      >
+        Question History
+      </button>
 
       <div className="turn-container">
         <h2>Who goes first?</h2>

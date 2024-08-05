@@ -20,7 +20,7 @@
   margin-top: 1rem;
   box-shadow: plum 15px 5px 10px;
   margin-bottom: 10px;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .headers-container > h2 {
@@ -30,23 +30,28 @@
 }
 
 .cardpacks {
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  gap: 30px;
-  justify-content: center; /* Add this line */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.card {
+  margin-left: 20px;
+}
 
 .card-text svg {
   font-size: 3rem;
   margin: 1rem;
 }
 
-.cardpack-names {
-  color: rgb(226, 140, 226);
-  margin: 1rem;
-  text-decoration: underline;
-}
+
 
 @media screen and (max-width: 960px) {
   .cardpack-container {
@@ -54,7 +59,7 @@
     height: 190vh;
   }
 
-  .headers-container > h1{
+  .headers-container > h1 {
     font-size: 30px;
   }
   .headers-container > h2 {
@@ -63,8 +68,9 @@
 
   .cardpacks {
     grid-template-columns: repeat(1, auto);
-
   }
 
-
+  .row {
+    flex-direction: column;
+  }
 }

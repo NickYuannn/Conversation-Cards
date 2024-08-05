@@ -26,8 +26,7 @@
   position: relative;
 
   border-radius: 5px;
-  z-index: auto;
-
+  z-index: inherit;
   width: 500px;
   height: 690px;
   background-color: white;
@@ -55,7 +54,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: -1;
+  z-index: -5;
   padding: 10px;
   border-radius: 15px;
   animation: spin 2s linear infinite;
@@ -65,11 +64,12 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-bottom: 5 px;
+  margin-bottom: 5px;
   margin-top: auto;
 }
 
-.cardpage-container button {
+.cardpage-container > button,
+.turn-container button {
   background-color: hotpink;
   color: white;
   font-size: 20px;
@@ -84,7 +84,8 @@
   transition: all 0.2s ease;
 }
 
-.cardpage-container button:hover {
+.cardpage-container > button:hover,
+.turn-container button:hover {
   transition: all 0.2s ease;
   box-shadow: 0 0 10px hotpink;
 }
@@ -112,11 +113,12 @@
   transition: all 0.2s ease;
 
   border-radius: 5px;
-  font-size: 50px;
+  font-size: 40px;
 
-  width: 500px;
+  width: 200px;
 
   color: lavender;
+  height: 100%;
 }
 
 .turn.selected {
@@ -179,7 +181,7 @@
 }
 
 .turn-container h2 {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 @media screen and (max-width: 960px) {
@@ -189,7 +191,6 @@
     flex-direction: column;
     justify-content: flex-start;
     height: 100%;
-    z-index: -1;
   }
   .cardpage-container > h1 {
     font-size: 50px;

@@ -20,65 +20,72 @@ function CardPacks() {
         </div>
 
         <div className="cardpacks">
-          <div className="strangers">
-            <h2 className="cardpack-names"> Not Familar </h2>
-            <div className="strangers-container">
-              <Card
-                title="Strangers"
-                subtitle="So you just met each other..."
-                icon={MdDeviceUnknown}
-                link="/Conversation-Cards/Strangers"
-              />
+          <div className="row">
+            {/* Strangers */}
+            <div className="card">
+              <div className="strangers-container">
+                <Card
+                  title="Strangers"
+                  subtitle="So you just met each other..."
+                  icon={MdDeviceUnknown}
+                  link="/Conversation-Cards/Strangers"
+                />
+              </div>
+            </div>
+
+            {/* Acquaintances */}
+            <div className="card">
+              <div className="acquaintances-container">
+                <Card
+                  title="Acquaintances"
+                  subtitle="What new things are you expecting?"
+                  icon={FaHandPeace}
+                  link="/Conversation-Cards/Acquaintances"
+                />
+              </div>
+            </div>
+
+            {/* Friends */}
+            <div className="card">
+              <div className="friends-container">
+                <Card
+                  title="Friends"
+                  subtitle="You think you know each other . . . right?"
+                  icon={TbFriends}
+                  link="/Conversation-Cards/Friends"
+                />
+              </div>
+            </div>
+
+            {/* Lovers */}
+            <div className="card">
+              <div className="lovers-container">
+                <Card
+                  title="Lovers"
+                  subtitle="Till Death Do Us Part"
+                  icon={GiLovers}
+                  link="/Conversation-Cards/Lovers"
+                />
+              </div>
+            </div>
+          </div>
+          {/*end of row 1*/}
+          <div className="row">
+
+            {/* Family */}
+            <div className="card">
+              <div className="family-container">
+                <Card
+                  title="Family"
+                  subtitle="Blood is thicker than water"
+                  icon={MdFamilyRestroom}
+                  link="/Conversation-Cards/Family"
+                />
+              </div>
             </div>
           </div>
 
-          <div className="acquaintances">
-            <h2 className="cardpack-names"> Sort of familar</h2>
-            <div className="acquaintances-container">
-              <Card
-                title="Acquaintances"
-                subtitle="What new things are you expecting?"
-                icon={FaHandPeace}
-                link="/Conversation-Cards/Acquaintances"
-              />
-            </div>
-          </div>
-
-          <div className="friends">
-            <h2 className="cardpack-names"> Familar </h2>
-            <div className="friends-container">
-              <Card
-                title="Friends"
-                subtitle="You think you know each other . . . right?"
-                icon={TbFriends}
-                link="/Conversation-Cards/Friends"
-              />
-            </div>
-          </div>
-
-          <div className="lovers">
-            <h2 className="cardpack-names"> Very Familiar </h2>
-            <div className="lovers-container">
-              <Card
-                title="Lovers"
-                subtitle="The one and only"
-                icon={GiLovers}
-                link="/Conversation-Cards/Lovers"
-              />
-            </div>
-          </div>
-
-          <div className="family">
-            <h2 className="cardpack-names"> Familiar </h2>
-            <div className="family-container">
-              <Card
-                title="Family"
-                subtitle="Blood is thicker than water"
-                icon={MdFamilyRestroom}
-                link="/Conversation-Cards/Family"
-              />
-            </div>
-          </div>
+          {/*end of row 2*/}
         </div>
       </div>
 
