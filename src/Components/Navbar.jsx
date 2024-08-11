@@ -53,16 +53,8 @@ function Navbar() {
         <li className="menu-item" onClick={openMobileMenu}>
           <Link to="/Conversation-Cards/About-Us">About Us</Link>
         </li>
-        <li
-          className="menu-item"
-          onClick={() =>
-            window.scrollTo({
-              top: document.body.scrollHeight,
-              behavior: "smooth",
-            })
-          }
-        >
-          Contact Us
+        <li className="menu-item" onClick={openMobileMenu}>
+          <Link to="/Conversation-Cards/Photo-Booth">Photo Booth</Link>
         </li>
       </ul>
 

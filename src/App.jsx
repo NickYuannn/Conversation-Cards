@@ -14,6 +14,7 @@ import Acquaintances from "./Components/Pages/Acquaintances";
 import Lovers from "./Components/Pages/Lovers";
 import AboutUs from "./Components/Pages/AboutUs";
 import Family from "./Components/Pages/Family";
+import PhotoBooth from "./Components/Pages/PhotoBooth";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -50,6 +51,8 @@ function App() {
           <Route path="Conversation-Cards/Lovers" exact Component={Lovers} />
 
           <Route path="Conversation-Cards/About-Us" exact Component={AboutUs} />
+          <Route path="Conversation-Cards/Photo-Booth" exact Component={PhotoBooth} />
+
         </Routes>
       </Router>
     </>
