@@ -1,34 +1,31 @@
 import React from "react";
 import "./PhotoBooth.css";
 import { useRef, useState, useEffect } from "react";
+import Footer from "../Footer";
 
 function PhotoBooth() {
   const videoRef = useRef();
   const photoRef = useRef();
 
-  const [hasPhoto, setHasPhoto] = useState(false);
-  const [showVideo, setShowVideo] = useState(true);
+  const [gallery, setGallery] = useState(false);
 
-  const getVideo = () => {
-    if (!hasPhoto) {
-      navigator.mediaDevices
-        .getUserMedia({
-          video: { width: 1280, height: 720 },
-        })
-        .then((stream) => {
-          let video = videoRef.current;
-          video.srcObject = stream;
-          video.play();
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    }
-  };
+  const [hasPhoto, setHasPhoto] = useState(false);
+
+  useEffect(() => {
+    navigator.mediaDevices
+      .getUserMedia({ video: { facingMode: "user" } })
+      .then((stream) => {
+        videoRef.current.srcObject = stream;
+        videoRef.current.play();
+      })
+      .catch((error) => {
+        console.log("Error accessing video stream: ", error);
+      });
+  }, []);
 
   const takePhoto = () => {
-    const width = 414;
-    const height = width / (16 / 9);
+    const width = 700;
+    const height = 500;
 
     let video = videoRef.current;
     let photo = photoRef.current;
@@ -42,29 +39,25 @@ function PhotoBooth() {
     setHasPhoto(true);
   };
 
-  const closePhoto = () => {
-    let photo = photoRef.current;
-    let ctx = photo.getContext("2d");
-
-    ctx.clearRect(0, 0, photo.width, photo.height);
-
-    setHasPhoto(false);
-  };
-
-  useEffect(() => {
-    getVideo();
-  }, [videoRef]);
-
   return (
     <div className="photobooth-container">
-      <div className="camera">
-        <video ref={videoRef}></video>
-        <button onClick={takePhoto}>Capture</button>
+      <div className="camera-container">
+        <h1>Photo Booth</h1>
+        <div className="camera">
+          <video ref={videoRef} autoPlay loop muted />
+          <div className={gallery ? "controls active" : "controls"}>
+            {!gallery && <button onClick={takePhoto} />}
+            <canvas
+              ref={photoRef}
+              className={gallery ? "active" : ""}
+              onClick={() => {
+                setGallery(!gallery);
+              }}
+            />
+          </div>
+        </div>
       </div>
-      <div className={"result " + (hasPhoto ? "hasPhoto" : "")}>
-        <canvas ref={photoRef}></canvas>
-        <button onClick={closePhoto}>Close</button>
-      </div>
+      <Footer />
     </div>
   );
 }

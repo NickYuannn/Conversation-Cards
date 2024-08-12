@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { FaBars, FaRegWindowClose, FaUserFriends } from "react-icons/fa";
+import { refreshPage } from "../App";
 
 function Navbar() {
   const [menuButton, setMenuButton] = React.useState(false);
@@ -47,13 +48,31 @@ function Navbar() {
       </div>
 
       <ul className={!mobileMenu ? "options-menu" : "options-menu active"}>
-        <li className="menu-item" onClick={openMobileMenu}>
+        <li
+          className="menu-item"
+          onClick={() => {
+            openMobileMenu;
+            refreshPage();
+          }}
+        >
           <Link to="/Conversation-Cards/">Card Packs</Link>
         </li>
-        <li className="menu-item" onClick={openMobileMenu}>
+        <li
+          className="menu-item"
+          onClick={() => {
+            openMobileMenu;
+            refreshPage();
+          }}
+        >
           <Link to="/Conversation-Cards/About-Us">About Us</Link>
         </li>
-        <li className="menu-item" onClick={openMobileMenu}>
+        <li
+          className="menu-item"
+          onClick={() => {
+            openMobileMenu;
+            refreshPage();
+          }}
+        >
           <Link to="/Conversation-Cards/Photo-Booth">Photo Booth</Link>
         </li>
       </ul>

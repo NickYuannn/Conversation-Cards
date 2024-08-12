@@ -18,13 +18,16 @@ import PhotoBooth from "./Components/Pages/PhotoBooth";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-
   return null;
 }
+
+export function refreshPage() {
+  window.location.reload();
+}
+
 
 function App() {
   return (
@@ -51,8 +54,11 @@ function App() {
           <Route path="Conversation-Cards/Lovers" exact Component={Lovers} />
 
           <Route path="Conversation-Cards/About-Us" exact Component={AboutUs} />
-          <Route path="Conversation-Cards/Photo-Booth" exact Component={PhotoBooth} />
-
+          <Route
+            path="Conversation-Cards/Photo-Booth"
+            exact
+            Component={PhotoBooth}
+          />
         </Routes>
       </Router>
     </>
