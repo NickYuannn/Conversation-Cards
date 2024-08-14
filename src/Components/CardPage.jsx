@@ -16,6 +16,8 @@ function CardPage(props) {
 
   const [loading, setLoading] = useState(false);
 
+  const [users, setUsers] = useState([]);
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Enter") {

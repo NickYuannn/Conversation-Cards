@@ -22,6 +22,8 @@
   font-size: 5rem;
   color: hotpink;
   margin-bottom: 50px;
+  text-shadow: hotpink 0 0 10px;
+
 }
 
 .conversation-card-container > h2 {

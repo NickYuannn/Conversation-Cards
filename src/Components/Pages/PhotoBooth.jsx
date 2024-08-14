@@ -6,10 +6,7 @@ import Footer from "../Footer";
 function PhotoBooth() {
   const videoRef = useRef();
   const photoRef = useRef();
-
   const [gallery, setGallery] = useState(false);
-
-  const [hasPhoto, setHasPhoto] = useState(false);
 
   useEffect(() => {
     navigator.mediaDevices
@@ -24,8 +21,8 @@ function PhotoBooth() {
   }, []);
 
   const takePhoto = () => {
-    const width = 700;
-    const height = 500;
+    const width = 500;
+    const height = 700;
 
     let video = videoRef.current;
     let photo = photoRef.current;
@@ -35,7 +32,23 @@ function PhotoBooth() {
 
     let ctx = photo.getContext("2d");
 
+    ctx.filter = "saturate(200%)";
+
     ctx.drawImage(video, 0, 0, width, height);
+
+    ctx.font = "bold 30px Arial";
+    ctx.fillStyle = "#fc7703";
+    ctx.textAlign = "center";
+
+    const currentDate = new Date();
+    const formattedDate = `${
+      currentDate.getMonth() + 1
+    } / ${currentDate.getDate()} / ${currentDate.getFullYear()}`;
+
+    ctx.fillText(`Convo`, width / 2, height - 60);
+
+    ctx.fillText(`${formattedDate}`, width / 2, height - 30);
+
     setHasPhoto(true);
   };
 
@@ -56,6 +69,10 @@ function PhotoBooth() {
             />
           </div>
         </div>
+        <p>Take a picture, save to make the memories last</p>
+        <p>
+          Take the picture, click the picture to the right, right click and save
+        </p>
       </div>
       <Footer />
     </div>
