@@ -16,7 +16,16 @@ function CardPage(props) {
 
   const [loading, setLoading] = useState(false);
 
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([
+    "fds",
+    "dsf",
+    "fsd",
+    "fds",
+    "dsf",
+    "fsd",
+  ]);
+
+  const [turn, setTurn] = useState("");
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -78,33 +87,38 @@ function CardPage(props) {
 
   const [reveal, setReveal] = useState(false);
 
-  const [turns, setTurns] = useState("");
-
   function newPrompt() {
     setTurns("");
     setReveal(false);
-  }
-
-  function chooseTurn() {
-    const randomSeconds = Math.floor(Math.random() * 3) + 1;
-    const options = ["Left", "Right"];
-
-    let count = 0;
-    const interval = setInterval(() => {
-      setTurns(options[count % options.length]);
-      count++;
-    }, 100);
-
-    setTimeout(() => {
-      clearInterval(interval);
-      setTurns(options[Math.floor(Math.random() * options.length)]);
-    }, randomSeconds * 1000);
   }
 
   async function revealPrompt() {
     await generatePrompt();
     setReveal(true);
   }
+  function addName() {
+    const nameInput = document.getElementById("name-input");
+    const name = nameInput.value;
+    if (!name) return;
+    setUsers([...users, name]);
+    nameInput.value = "";
+  }
+
+  function chooseTurn() {
+    const randomSeconds = Math.floor(Math.random() * 3) + 1;
+
+    let count = 0;
+    const interval = setInterval(() => {
+      setTurn(Math.floor(Math.random() * users.length));
+      count++;
+    }, 100);
+
+    setTimeout(() => {
+      clearInterval(interval);
+      setTurn(Math.floor(Math.random() * users.length));
+    }, randomSeconds * 1000);
+  }
+
   return (
     <div className="cardpage-container">
       <div className="cardpage">
@@ -184,15 +198,26 @@ function CardPage(props) {
         </button>
 
         <div className="turn-container">
-          <h2>Who goes first?</h2>
-          <h3>If yall cannot decide</h3>
-          <div className="turn-squares">
-            <div className={turns === "Left" ? "turn selected" : "turn"}>
-              <h2>Left</h2>
-            </div>
-            <div className={turns === "Right" ? "turn selected" : "turn"}>
-              <h2>Right</h2>
-            </div>
+          <h1>Order Selector</h1>
+          <div className="turn-ui">
+            <ul className="users-list">
+              {users.map((user, index) => (
+                <li
+                  key={index}
+                  className={index === turn ? "turn selected" : "turn"}
+                >
+                  {user}
+                </li>
+              ))}
+            </ul>
+            <input id="name-input" />
+            <button
+              onClick={() => {
+                addName();
+              }}
+            >
+              Add Name
+            </button>
           </div>
           <button onClick={chooseTurn}>Choose!</button>
         </div>
