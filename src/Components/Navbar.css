@@ -6,7 +6,6 @@
   display: flex;
   justify-self: center;
   align-items: center;
-
 }
 
 .name-container {
@@ -16,6 +15,11 @@
   align-items: center;
   font-size: 30px;
   color: white;
+  transition: 0.2s ease all;
+}
+
+.name-container:hover {
+  text-shadow: lavender 0 0 15px;
 }
 
 .icon-container {
@@ -47,7 +51,6 @@
   transition: 0.2s ease all;
   cursor: pointer;
 }
-
 
 .options-menu li:hover {
   border-bottom: 5px solid white;

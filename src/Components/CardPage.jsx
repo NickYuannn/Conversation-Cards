@@ -17,12 +17,11 @@ function CardPage(props) {
   const [loading, setLoading] = useState(false);
 
   const [users, setUsers] = useState([
-    "fds",
-    "dsf",
-    "fsd",
-    "fds",
-    "dsf",
-    "fsd",
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "p5",
   ]);
 
   const [turn, setTurn] = useState("");
@@ -88,7 +87,7 @@ function CardPage(props) {
   const [reveal, setReveal] = useState(false);
 
   function newPrompt() {
-    setTurns("");
+    setTurn("");
     setReveal(false);
   }
 
@@ -109,14 +108,15 @@ function CardPage(props) {
 
     let count = 0;
     const interval = setInterval(() => {
-      setTurn(Math.floor(Math.random() * users.length));
-      count++;
+      setTurn(count++ % users.length);
     }, 100);
 
     setTimeout(() => {
       clearInterval(interval);
-      setTurn(Math.floor(Math.random() * users.length));
+      setTurn(count++ % users.length);
     }, randomSeconds * 1000);
+
+    console.log(randomSeconds);
   }
 
   return (
@@ -205,6 +205,11 @@ function CardPage(props) {
                 <li
                   key={index}
                   className={index === turn ? "turn selected" : "turn"}
+                  onClick={() => {
+                    const newUsers = [...users];
+                    newUsers.splice(index, 1);
+                    setUsers(newUsers);
+                  }}
                 >
                   {user}
                 </li>
